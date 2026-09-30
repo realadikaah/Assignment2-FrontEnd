@@ -1,0 +1,262 @@
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.section {
+    padding: 40px 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.section > h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* TASK 0 - NAVIGATION */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* TASK 1 - CARD ROW */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card p {
+    flex: 1;
+}
+
+.card button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* TASK 2 - GRID LAYOUT */
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 70px 250px 70px;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    margin: 20px;
+}
+
+.grid-header {
+    grid-area: header;
+    padding: 20px;
+    background: #ddd;
+}
+
+.grid-sidebar {
+    grid-area: sidebar;
+    padding: 20px;
+    background: #eee;
+}
+
+.grid-main {
+    grid-area: main;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.grid-footer {
+    grid-area: footer;
+    padding: 20px;
+    background: #ddd;
+    text-align: center;
+}
+
+/* TASK 3 - IMAGE GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover span {
+    opacity: 1;
+}
+
+/* TASK 4 - PORTFOLIO */
+
+.portfolio {
+    min-height: 100vh;
+    background: white;
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+}
+
+.portfolio-header nav {
+    display: flex;
+    gap: 20px;
+}
+
+.portfolio-header a {
+    color: white;
+    text-decoration: none;
+}
+
+.portfolio-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.project button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 10px;
+}
+
+.portfolio-info {
+    padding: 20px;
+    background: #eee;
+}
+
+.portfolio-footer {
+    padding: 20px;
+    background: #222;
+    color: white;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+
+    .portfolio-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar,
+    .portfolio-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
